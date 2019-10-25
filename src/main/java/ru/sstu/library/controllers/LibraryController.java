@@ -12,9 +12,9 @@ public class LibraryController {
     private LibraryService libraryService;
 
     @GetMapping("/")
-    public String main(Model model){
-        model.addAttribute("news",libraryService.getAllNews());
-        model.addAttribute("genres",libraryService.getAllGenres());
+    public String main(Model model) {
+        model.addAttribute("news", libraryService.getAllNews());
+        model.addAttribute("genres", libraryService.getAllGenres());
         return "index";
     }
 }
