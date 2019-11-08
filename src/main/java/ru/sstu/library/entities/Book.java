@@ -41,6 +41,10 @@ public class Book {
     private Level level;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany()
+    @JoinTable(name = "BOOKTOSETS", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "SETS_ID"))
+    private Collection<ru.sstu.library.entities.Set> sets;
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @ManyToMany()
     @JoinTable(name = "BOOKTOAUTHOR", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
     private Collection<Author> authors;
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -53,7 +57,8 @@ public class Book {
     private Collection<Author> foreignAuthors;
     @ManyToMany(mappedBy = "booksFavorites")
     private Collection<User> usersFavorites;
-
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate date_publish;
 
     @Override
     public String toString() {
