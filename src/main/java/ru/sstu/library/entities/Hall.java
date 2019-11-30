@@ -12,10 +12,10 @@ import java.util.Collection;
 public class Hall {
     @Id
     @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE)
     private Integer hall_id;
     private String name;
-    @OneToMany(mappedBy = "hall", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "hall",fetch = FetchType.EAGER)
     private Collection<Book> books;
 
     @Override

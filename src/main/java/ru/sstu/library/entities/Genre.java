@@ -1,6 +1,5 @@
 package ru.sstu.library.entities;
 
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

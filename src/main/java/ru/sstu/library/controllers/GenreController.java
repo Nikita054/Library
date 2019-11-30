@@ -1,5 +1,5 @@
 package ru.sstu.library.controllers;
-
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +19,16 @@ public class GenreController {
     private LibraryService libraryService;
 
     @GetMapping("/")
-    public String getAll(Model model) {
-        model.addAttribute("books", genreService.getAllBooks());
-        model.addAttribute("genres", libraryService.getAllGenres());
+    public String getAll(Model model){
+        model.addAttribute("books",genreService.getAllBooks());
+        model.addAttribute("genres",libraryService.getAllGenres());
         return "genres";
     }
 
     @GetMapping("/{genre}")
-    public String booksByGenre(@PathVariable Genre genre, Model model) {
-        model.addAttribute("books", genreService.getBookByGenre(genre));
-        model.addAttribute("genres", libraryService.getAllGenres());
+    public String booksByGenre(@PathVariable Genre genre, Model model){
+        model.addAttribute("books",genreService.getBookByGenre(genre));
+        model.addAttribute("genres",libraryService.getAllGenres());
         return "genres";
     }
 }

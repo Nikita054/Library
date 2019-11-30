@@ -9,13 +9,12 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Date;
 
-
 @Data
 @Entity
 public class Author {
     @Id
     @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE)
     private Integer author_id;
     private String fio;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)

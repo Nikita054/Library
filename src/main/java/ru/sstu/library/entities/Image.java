@@ -14,7 +14,7 @@ import java.util.Collection;
 public class Image {
     @Id
     @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE)
     private Integer image_id;
     private String link;
     @OneToMany(mappedBy = "image")
@@ -23,6 +23,8 @@ public class Image {
     @OneToMany(mappedBy = "imageNews")
     @LazyCollection(LazyCollectionOption.FALSE)
     private Collection<News> news;
+    @OneToOne(mappedBy = "image")
+    private Set set;
 
     @Override
     public String toString() {

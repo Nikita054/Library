@@ -16,7 +16,7 @@ import java.util.Collection;
 public class Book {
     @Id
     @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE)
     private Integer book_id;
     private String name;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
@@ -25,39 +25,39 @@ public class Book {
     @Column(name = "count_book_library")
     private Integer countInLibrary;
     private String isbn;
-    @Column(name = "countpages")
+    @Column(name="countpages")
     private Integer countPages;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "IMAGE_ID")
+    @JoinColumn(name="IMAGE_ID")
     private Image image;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "HALL_ID")
+    @JoinColumn(name="HALL_ID")
     private Hall hall;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "RANGE_ID")
+    @JoinColumn(name="RANGE_ID")
     private Range range;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "LEVEL_ID")
+    @JoinColumn(name="LEVEL_ID")
     private Level level;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany()
-    @JoinTable(name = "BOOKTOSETS", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "SETS_ID"))
-    private Collection<ru.sstu.library.entities.Set> sets;
+    @JoinTable(name = "BOOKTOSETS",joinColumns = @JoinColumn(name = "BOOK_ID"),inverseJoinColumns = @JoinColumn(name="SETS_ID"))
+    private Collection<Set> sets;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany()
-    @JoinTable(name = "BOOKTOAUTHOR", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
+    @JoinTable(name = "BOOKTOAUTHOR",joinColumns = @JoinColumn(name="BOOK_ID"),inverseJoinColumns =@JoinColumn(name="AUTHOR_ID"))
     private Collection<Author> authors;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany()
-    @JoinTable(name = "BOOKTOGENRE", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "GENRE_ID"))
+    @JoinTable(name = "BOOKTOGENRE",joinColumns = @JoinColumn(name = "BOOK_ID"),inverseJoinColumns = @JoinColumn(name = "GENRE_ID"))
     private Collection<Genre> genres;
     @LazyCollection(LazyCollectionOption.FALSE)
     @ManyToMany()
-    @JoinTable(name = "BOOKTOFOREIGNAUTHOR", joinColumns = @JoinColumn(name = "BOOK_ID"), inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
+    @JoinTable(name="BOOKTOFOREIGNAUTHOR",joinColumns = @JoinColumn(name = "BOOK_ID"),inverseJoinColumns = @JoinColumn(name = "AUTHOR_ID"))
     private Collection<Author> foreignAuthors;
     @ManyToMany(mappedBy = "booksFavorites")
     private Collection<User> usersFavorites;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private LocalDate date_publish;
 
     @Override

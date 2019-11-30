@@ -13,10 +13,10 @@ import java.util.Collection;
 public class Level {
     @Id
     @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy =GenerationType.SEQUENCE)
     private Integer level_id;
     private String name;
-    @OneToMany(mappedBy = "level", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "level",fetch = FetchType.EAGER)
     private Collection<Book> books;
 
     @Override
